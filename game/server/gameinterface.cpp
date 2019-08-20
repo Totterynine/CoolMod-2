@@ -148,6 +148,11 @@ CSteamGameServerAPIContext *steamgameserverapicontext = &s_SteamGameServerAPICon
 
 IUploadGameStats *gamestatsuploader = NULL;
 
+#ifdef COOLMOD
+#include "coolmod/map_parser.h"
+#include "coolmod/luamanager.h"
+#endif
+
 // memdbgon must be the last include file in a .cpp file!!!
 #include "tier0/memdbgon.h"
 
@@ -742,6 +747,12 @@ bool CServerGameDLL::DLLInit( CreateInterfaceFn appSystemFactory,
 	gamestatsuploader->InitConnection();
 #endif
 
+#ifdef COOLMOD
+	// Start LUA
+	GetLuaManager()->InitDll();
+#endif // COOLMOD
+
+
 	return true;
 }
 
@@ -802,6 +813,10 @@ void CServerGameDLL::DLLShutdown( void )
 	DisconnectTier2Libraries();
 	ConVar_Unregister();
 	DisconnectTier1Libraries();
+#ifdef COOLMOD
+	// Shutdown LUA
+	GetLuaManager()->ShutdownDll();
+#endif // COOLMOD
 }
 
 bool CServerGameDLL::ReplayInit( CreateInterfaceFn fnReplayFactory )
@@ -985,6 +1000,11 @@ bool CServerGameDLL::LevelInit( const char *pMapName, char const *pMapEntities, 
 		{
 			gpGlobals->eLoadType = MapLoad_LoadGame;
 		}
+
+#ifdef COOLMOD
+		GetMapScriptParser()->SetRestored(gpGlobals->eLoadType == MapLoad_LoadGame);
+#endif // COOLMOD
+
 
 		BeginRestoreEntities();
 		if ( !engine->LoadGameState( pMapName, 1 ) )

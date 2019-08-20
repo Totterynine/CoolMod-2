@@ -17,6 +17,11 @@ $Configuration
 		$AdditionalIncludeDirectories	"$BASE;$SRCDIR\game\shared\hl2;$SRCDIR\game\shared\episodic;.\hl2;.\episodic"
 		$PreprocessorDefinitions		"$BASE;HL2_DLL;HL2_EPISODIC;USES_SAVERESTORE;COOLMOD;COOLMOD_SERVER"
 	}
+
+	$Linker
+	{
+		$AdditionalDependencies			"$BASE;lua52.lib"
+	}
 }
 
 $Project "Server (CoolMod)"
@@ -47,6 +52,21 @@ $Project "Server (CoolMod)"
 		$File	"vehicle_choreo_generic.cpp"
 		$File	"$SRCDIR\game\shared\vehicle_choreo_generic_shared.h"
 		$File	"$SRCDIR\game\shared\weapon_parse_default.cpp"
+
+
+		$Folder	"COOLMOD DLL"
+		{
+			$File	"coolmod\lua_mapadd.cpp"
+			$File	"coolmod\lua_mapadd.h"
+			$File	"..\shared\coolmod\luamanager.cpp"
+			$File	"..\shared\coolmod\luamanager.h"
+			$File	"coolmod\map_parser.cpp"
+			$File	"coolmod\map_parser.h"
+			$File	"..\shared\coolmod\smod_cvars.cpp"
+			$File	"..\shared\coolmod\smod_cvars.h"
+			$File	"coolmod\smod_nodelistparser.cpp"
+			$File	"coolmod\smod_nodelistparser.h"
+		}
 
 		$Folder	"HL2 DLL"
 		{
