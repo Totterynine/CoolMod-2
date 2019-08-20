@@ -19,6 +19,9 @@ ipch
 *.idb
 *.vcxproj
 *.sln
+*.filters
+*.db
+*.opendb
 
 # OSX/Linux build products
 *.mak
@@ -28,13 +31,15 @@ obj*/
 !devtools/*.mak
 !utils/smdlexp/smdlexp.mak
 
+*.pdb
+
 # Specific Source build products
-client.pdb
 client.dll
 client.lib
-server.pdb
 server.dll
 server.lib
+game_shader_dx9.dll
+game_shader_dx9.lib
 
 client.so
 client.so.dbg
@@ -54,3 +59,5 @@ config.cfg
 # shader files
 *.tmp
 
+*.vpc_crc
+*.sentinel
