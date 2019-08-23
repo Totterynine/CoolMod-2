@@ -12,7 +12,6 @@ public:
 	virtual void ParseEntities(KeyValues *keyvalues);
 	virtual void ParseRandomEntities(KeyValues *keyvalues);
 
-	virtual void PreClientUpdate();
 	void ExecuteRandomEntites();
 
 	void SetRestored(bool restored) { m_bRestored = restored; }

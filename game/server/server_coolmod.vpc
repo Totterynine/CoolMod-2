@@ -14,13 +14,13 @@ $Configuration
 {
 	$Compiler
 	{
-		$AdditionalIncludeDirectories	"$BASE;$SRCDIR\game\shared\hl2;$SRCDIR\game\shared\episodic;.\hl2;.\episodic"
+		$AdditionalIncludeDirectories	"$BASE;$SRCDIR\game\shared\hl2;$SRCDIR\game\shared\episodic;$SRCDIR\game\shared\coolmod;.\hl2;.\episodic;.\coolmod"
 		$PreprocessorDefinitions		"$BASE;HL2_DLL;HL2_EPISODIC;USES_SAVERESTORE;COOLMOD;COOLMOD_SERVER"
 	}
 
 	$Linker
 	{
-		$AdditionalDependencies			"$BASE;lua52.lib"
+		$AdditionalDependencies			"$BASE lua52.lib"
 	}
 }
 

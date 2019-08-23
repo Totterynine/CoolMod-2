@@ -14,8 +14,13 @@ $Configuration
 {
 	$Compiler
 	{
-		$AdditionalIncludeDirectories	".\hl2;.\hl2\elements;$SRCDIR\game\shared\hl2;$SRCDIR\game\shared\episodic;..\..\public;$BASE"
+		$AdditionalIncludeDirectories	".\hl2;.\hl2\elements;.\coolmod;$SRCDIR\game\shared\hl2;$SRCDIR\game\shared\episodic;$SRCDIR\game\shared\coolmod;..\..\public;$BASE"
 		$PreprocessorDefinitions		"$BASE;HL2_CLIENT_DLL;HL2_EPISODIC;COOLMOD;COOLMOD_CLIENT"
+	}
+
+	$Linker
+	{
+		$AdditionalDependencies			"$BASE lua52.lib"
 	}
 }
 
@@ -26,6 +31,14 @@ $Project "Client (CoolMod)"
 		$File	"hud_chat.cpp"
 		$File	"c_team_objectiveresource.cpp"
 		$File	"c_team_objectiveresource.h"
+		
+		$Folder	"COOLMOD DLL"
+		{
+			$File	"..\shared\coolmod\luamanager.cpp"
+			$File	"..\shared\coolmod\luamanager.h"
+			$File	"..\shared\coolmod\smod_cvars.cpp"
+			$File	"..\shared\coolmod\smod_cvars.h"
+		}
 
 		$Folder	"HL2 DLL"
 		{

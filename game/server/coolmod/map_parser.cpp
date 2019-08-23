@@ -167,14 +167,6 @@ void CMapScriptParser::LevelShutdownPostEntity()
 	}
 }
 
-void CMapScriptParser::PreClientUpdate()
-{
-	if (!m_hasLua)
-		return;
-	//GetLuaHandle()->OpenFile(gpGlobals->mapname.ToCStr());
-	GetLuaHandle()->CallFunction("Update");
-}
-
 void CMapScriptParser::ExecuteRandomEntites()
 {
 	KeyValues *pRandom = m_pMapScript->FindKey("randomspawn");

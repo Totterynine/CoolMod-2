@@ -17,9 +17,10 @@
 
 extern "C"
 {
-   #include "../../public/lua/lua.h"
-   #include "../../public/lua/lauxlib.h"
-   #include "../../public/lua/lualib.h"
+	#define LUA_COMPAT_MODULE
+	#include "../../public/lua/lua.h"
+	#include "../../public/lua/lauxlib.h"
+	#include "../../public/lua/lualib.h"
 }
 
 #include <vector>
