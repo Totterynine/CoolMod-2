@@ -1,3 +1,6 @@
+#ifndef MAPADDLUA_H
+#define MAPADDLUA_H
+
 #include "cbase.h"
 #include "coolmod/luamanager.h"
 
@@ -27,5 +30,5 @@ private:
 	unsigned m_szOldCommonBuffer;
 };
 
-MapAddLua* g_LuaHandle = NULL;
-extern MapAddLua *GetLuaHandle();
+extern MapAddLua* g_LuaHandle;
+#endif // !MAPADDLUA_H

@@ -38,6 +38,13 @@ $Project "Client (CoolMod)"
 			$File	"..\shared\coolmod\luamanager.h"
 			$File	"..\shared\coolmod\smod_cvars.cpp"
 			$File	"..\shared\coolmod\smod_cvars.h"
+			$File	"coolmod\cmapadd_editor.cpp"
+			$File	"coolmod\cmapadd_editor.h"
+			$File	"coolmod\vgui\vgui_editor_controls.cpp"
+			$File	"coolmod\vgui\vgui_editor_controls.h"
+			$File	"coolmod\vgui\vgui_editor_props.cpp"
+			$File	"coolmod\vgui\vgui_editor_props.h"
+			$File	"coolmod\vgui\vgui_editor_root.cpp"
 		}
 
 		$Folder	"HL2 DLL"

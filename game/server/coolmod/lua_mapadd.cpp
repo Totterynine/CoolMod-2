@@ -20,10 +20,7 @@ ConVar mapadd_lua_debugmode("mapadd_lua_debugmode","0");
 #define DebugColorMsg(msg)
 #endif
 
-MapAddLua *GetLuaHandle()
-{
-	return g_LuaHandle;
-}
+MapAddLua* g_LuaHandle;
 
 static int luaprint(lua_State* L) {
 	int nargs = lua_gettop(L);
@@ -562,7 +559,6 @@ void RegisterHL2(lua_State * l)
 
 MapAddLua::MapAddLua() : LuaHandle()
 {
-	g_LuaHandle = this;
 	m_bCommonLuaLoaded = false;
 	Register();
 }

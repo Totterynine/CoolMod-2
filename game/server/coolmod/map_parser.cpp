@@ -65,8 +65,8 @@ void CMapScriptParser::LevelInitPostEntity()
 	if (m_bRestored)
 		return;
 
-	if (!GetLuaHandle())
-		new MapAddLua();
+	if (!g_LuaHandle)
+		g_LuaHandle = new MapAddLua();
 
 	char filename[FILENAME_MAX];
 	//if (GetNodeListParser())
@@ -249,11 +249,11 @@ void CMapScriptParser::ParseEntities(KeyValues *keyvalues)
 		DebugColorMsg(pClassname->GetName());
 		DebugColorMsg("\n");
 
-		if (!Q_strcmp(pClassname->GetName(), "lua") && GetLuaHandle())
+		if (!Q_strcmp(pClassname->GetName(), "lua") && g_LuaHandle)
 		{
 			m_hasLua = true;
-			GetLuaHandle()->OpenFile(gpGlobals->mapname.ToCStr());
-			GetLuaHandle()->CallFunction(pClassname->GetString("callfunc", ""));
+			g_LuaHandle->OpenFile(gpGlobals->mapname.ToCStr());
+			g_LuaHandle->CallFunction(pClassname->GetString("callfunc", ""));
 			continue;
 		}
 		else
