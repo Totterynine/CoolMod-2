@@ -991,15 +991,5 @@ static class CMapaddEditorHelper : public CAutoGameSystemPerFrame
 
 			bWasTabDown = bIsTabDown;
 		}
-
-		if(input()->GetMouseOver() != 0)
-			engine->Con_NPrintf(7, "mouse over: %s", ipanel()->GetName(input()->GetMouseOver()));
-		else
-			engine->Con_NPrintf(7, "mouse over: NULL");
-
-		if (input()->GetMouseCapture() != 0)
-			engine->Con_NPrintf(8, "mouse capture: %s", ipanel()->GetName(input()->GetMouseCapture()));
-		else
-			engine->Con_NPrintf(8, "mouse capture: NULL");
 	};
 } __g_lightEditorHelper;
